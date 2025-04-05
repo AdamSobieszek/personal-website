@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter Signup</title>
+    <title>Research Newsletter Signup</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             line-height: 1.6;
         }
-        h1 {
+        .header-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        h1, h2 {
             color: #333;
         }
         form {
             background: #f9f9f9;
             padding: 20px;
             border-radius: 5px;
-            margin-top: 20px;
+            margin: 20px 0;
         }
         input {
             width: 100%;
@@ -51,11 +58,39 @@
         .error {
             color: #f44336;
         }
+        .paper-section {
+            margin-top: 30px;
+        }
+        .paper {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .paper a {
+            color: #2c6dad;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .paper a:hover {
+            text-decoration: underline;
+        }
+        .paper-description {
+            margin-top: 5px;
+            color: #555;
+        }
+        .paper-meta {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
-    <h1>Join Our Newsletter</h1>
-    <p>Subscribe to get updates on our latest products and offers.</p>
+    <img src="header.png" alt="Research Newsletter Header" class="header-image">
+    
+    <h1>Join Our Research Newsletter</h1>
+    <p>Share your e-mail to get updates on our latest research papers and open source methods:</p>
     
     <form id="newsletter-form">
         <input type="text" id="name" placeholder="Your Name" required>
@@ -64,6 +99,34 @@
     </form>
     
     <div id="status"></div>
+    
+    <div class="paper-section">
+        <h2>Latest Papers</h2>
+        
+        <div class="paper">
+            <a href="https://bpspsychub.onlinelibrary.wiley.com/doi/full/10.1111/bjop.12732">
+                Generative neural networks for experimental manipulation: Examining dominance‐trustworthiness face impressions with data‐efficient models
+            </a>
+            <div class="paper-description">
+                This study explores how data-efficient generative models can be used to manipulate facial features for psychological experiments on trustworthiness perception.
+            </div>
+            <div class="paper-meta">
+                A Sobieszek, M Siemiątkowski, KK Imbir | British Journal of Psychology | 2024
+            </div>
+        </div>
+        
+        <div class="paper">
+            <a href="https://link.springer.com/article/10.3758/s13428-023-02212-3">
+                Extrapolation of affective norms using transformer-based neural networks and its application to experimental stimuli selection
+            </a>
+            <div class="paper-description">
+                This paper demonstrates how transformer-based neural networks can effectively extrapolate affective norms to improve experimental stimuli selection.
+            </div>
+            <div class="paper-meta">
+                H Plisiecki, A Sobieszek | Behavior Research Methods 56 (5), 4716-4731
+            </div>
+        </div>
+    </div>
 
     <script>
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
@@ -74,7 +137,7 @@
             const statusDiv = document.getElementById('status');
             
             // Replace this URL with your Google Apps Script Web App URL
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyHhOB_8J5lSFcMjW5D0IV8rY2ACH3yB6xKt54fDyKMx5gvoJzxzx6aT0m-lvgqmlHQ/exec';
+            const scriptURL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
             
             fetch(scriptURL, {
                 method: 'POST',
