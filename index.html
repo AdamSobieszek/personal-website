@@ -7,8 +7,6 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 20px;
             line-height: 1.6;
         }
@@ -60,234 +58,81 @@
         }
         .page-layout {
             display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-            gap: 40px;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 800px) minmax(340px, 1fr);
+            column-gap: 24px;
             align-items: start;
         }
+        .main-content {
+            grid-column: 2;
+        }
+        .paper-section {
+            grid-column: 3;
+            max-width: 420px;
+        }
         .paper-section h2 {
-            margin-top: 0;
+            margin: 0 0 8px;
+            font-size: 18px;
         }
         .papers {
             width: 100%;
             border-collapse: collapse;
+            line-height: 1.25;
         }
         .papers th {
-            padding: 0 0 8px;
+            padding: 0 0 4px;
             border-bottom: 1px solid #ddd;
             color: #777;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: normal;
             text-align: left;
             text-transform: uppercase;
         }
         .papers td {
-            padding: 12px 0;
+            padding: 5px 0;
             border-bottom: 1px solid #eee;
             vertical-align: top;
         }
         .papers .paper-stat {
-            padding-left: 16px;
+            padding-left: 10px;
             color: #777;
-            font-size: 14px;
+            font-size: 12px;
             text-align: right;
-            white-space: nowrap;
         }
         .papers a {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
             color: #2c6dad;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
+            font-size: 12px;
         }
         .papers a:hover {
             text-decoration: underline;
         }
-        .paper-description {
-            margin-top: 5px;
-            color: #555;
-        }
         .paper-meta {
-            font-size: 14px;
+            font-size: 11px;
             color: #777;
-            margin-top: 5px;
+            margin-top: 2px;
         }
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
             .page-layout {
-                grid-template-columns: minmax(0, 1fr);
+                display: block;
+                max-width: 800px;
+                margin: 0 auto;
             }
-            .main-content {
-                order: -1;
+            .paper-section {
+                max-width: none;
+                margin-top: 30px;
+            }
+            .papers a {
+                display: inline;
             }
         }
     </style>
 </head>
 <body>
     <div class="page-layout">
-        <aside class="paper-section">
-            <h2>Latest Papers</h2>
-
-            <table class="papers">
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col" class="paper-stat">Cited by</th>
-                        <th scope="col" class="paper-stat">Year</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="https://doi.org/10.1007/s11023-022-09602-0">
-                                Playing Games with AIs: The Limits of GPT-3 and Similar Large Language Models
-                            </a>
-                            <div class="paper-meta">
-                                Minds and Machines 32 (2), 341-364
-                            </div>
-                        </td>
-                        <td class="paper-stat">138</td>
-                        <td class="paper-stat">2022</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://link.springer.com/article/10.3758/s13428-023-02212-3">
-                                Extrapolation of affective norms using transformer-based neural networks and its application to experimental stimuli selection
-                            </a>
-                            <div class="paper-description">
-                                We introduce a machine learning method to accurately predict affective norms of words (positivity, arousal, dominance, abstracness etc.) for multiple lanugages and propose a better method of selecting such emotional word stimuli for different exp. conditions.
-                            </div>
-                            <div class="paper-meta">
-                                Behavior Research Methods 56 (5), 4716-4731
-                            </div>
-                        </td>
-                        <td class="paper-stat">31</td>
-                        <td class="paper-stat">2024</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://doi.org/10.3389/fpsyg.2024.1401084">
-                                Emotion topology: extracting fundamental components of emotions from text using word embeddings
-                            </a>
-                            <div class="paper-meta">
-                                Frontiers in Psychology 15, 1401084
-                            </div>
-                        </td>
-                        <td class="paper-stat">9</td>
-                        <td class="paper-stat">2024</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://bpspsychub.onlinelibrary.wiley.com/doi/full/10.1111/bjop.12732">
-                                Generative neural networks for experimental manipulation: Examining dominance‐trustworthiness face impressions with data‐efficient models
-                            </a>
-                            <div class="paper-description">
-                                We introduce an open source method for generating face stimuli sets for psychological experiments with appearance precisely manipulated on dimensions of dominance and trustworthiness.
-                            </div>
-                            <div class="paper-meta">
-                                British Journal of Psychology 117 (2), 636-655
-                            </div>
-                        </td>
-                        <td class="paper-stat">3</td>
-                        <td class="paper-stat">2026</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://doi.org/10.3389/fnhum.2020.567220">
-                                Electrophysiological and Behavioral Correlates of Valence, Arousal and Subjective Significance in the Lexical Decision Task
-                            </a>
-                            <div class="paper-meta">
-                                Frontiers in Human Neuroscience 14, 567220
-                            </div>
-                        </td>
-                        <td class="paper-stat">23</td>
-                        <td class="paper-stat">2020</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://doi.org/10.1371/journal.pone.0258177">
-                                Electrophysiological correlates of interference control in the modified emotional Stroop task with emotional stimuli differing in valence, arousal, and subjective significance
-                            </a>
-                            <div class="paper-meta">
-                                PLOS ONE 16 (10), e0258177
-                            </div>
-                        </td>
-                        <td class="paper-stat">19</td>
-                        <td class="paper-stat">2021</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://doi.org/10.1371/journal.pone.0265537">
-                                Arousal, subjective significance and the origin of valence aligned words in the processing of an emotional categorisation task
-                            </a>
-                            <div class="paper-meta">
-                                PLOS ONE 17 (3), e0265537
-                            </div>
-                        </td>
-                        <td class="paper-stat">11</td>
-                        <td class="paper-stat">2022</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://doi.org/10.3390/brainsci12081093">
-                                The Affect Misattribution in the Interpretation of Ambiguous Stimuli in Terms of Warmth vs. Competence: Behavioral Phenomenon and Its Neural Correlates
-                            </a>
-                            <div class="paper-meta">
-                                Brain Sciences 12 (8), 1093
-                            </div>
-                        </td>
-                        <td class="paper-stat">8</td>
-                        <td class="paper-stat">2022</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://doi.org/10.1017/langcog.2023.6">
-                                Role of arousal, subjective significance and valence of affect in task-switching effectiveness
-                            </a>
-                            <div class="paper-meta">
-                                Language and Cognition 15 (4), 689-715
-                            </div>
-                        </td>
-                        <td class="paper-stat">4</td>
-                        <td class="paper-stat">2023</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://doi.org/10.7717/peerj.14583">
-                                The role of subjective significance, valence and arousal in the explicit processing of emotion-laden words
-                            </a>
-                            <div class="paper-meta">
-                                PeerJ 11, e14583
-                            </div>
-                        </td>
-                        <td class="paper-stat">4</td>
-                        <td class="paper-stat">2023</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://doi.org/10.1371/journal.pone.0270558">
-                                Inhibitory control effectiveness can be improved: The role of arousal, subjective significance and origin of words in modified Emotional Stroop Test
-                            </a>
-                            <div class="paper-meta">
-                                PLOS ONE 17 (6), e0270558
-                            </div>
-                        </td>
-                        <td class="paper-stat">3</td>
-                        <td class="paper-stat">2022</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://doi.org/10.1101/2022.02.27.22271579">
-                                Vaccine hesitancy strongly correlates with COVID-19 deaths underreporting
-                            </a>
-                            <div class="paper-meta">
-                                medRxiv 2022.02.27.22271579
-                            </div>
-                        </td>
-                        <td class="paper-stat">2</td>
-                        <td class="paper-stat">2022</td>
-                    </tr>
-                </tbody>
-            </table>
-        </aside>
-
         <main class="main-content">
             <img src="header.png" alt="Research Newsletter Header" class="header-image">
 
@@ -305,6 +150,166 @@
             <h3>Contact Us</h3>
             <p>If you have any questions, please contact us at <a href="mailto:skn.socialai@psych.uw.edu.pl">skn.socialai@psych.uw.edu.pl</a>.</p>
         </main>
+
+        <aside class="paper-section">
+            <h2>Latest Papers</h2>
+
+            <table class="papers">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col" class="paper-stat">Cited by</th>
+                        <th scope="col" class="paper-stat">Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://doi.org/10.1007/s11023-022-09602-0" title="Playing Games with AIs: The Limits of GPT-3 and Similar Large Language Models">
+                                Playing Games with AIs: The Limits of GPT-3 and Similar Large Language Models
+                            </a>
+                            <div class="paper-meta">
+                                Minds and Machines 32 (2), 341-364
+                            </div>
+                        </td>
+                        <td class="paper-stat">138</td>
+                        <td class="paper-stat">2022</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://link.springer.com/article/10.3758/s13428-023-02212-3" title="Extrapolation of affective norms using transformer-based neural networks and its application to experimental stimuli selection">
+                                Extrapolation of affective norms using transformer-based neural networks and its application to experimental stimuli selection
+                            </a>
+                            <div class="paper-meta">
+                                Behavior Research Methods 56 (5), 4716-4731
+                            </div>
+                        </td>
+                        <td class="paper-stat">31</td>
+                        <td class="paper-stat">2024</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://doi.org/10.3389/fpsyg.2024.1401084" title="Emotion topology: extracting fundamental components of emotions from text using word embeddings">
+                                Emotion topology: extracting fundamental components of emotions from text using word embeddings
+                            </a>
+                            <div class="paper-meta">
+                                Frontiers in Psychology 15, 1401084
+                            </div>
+                        </td>
+                        <td class="paper-stat">9</td>
+                        <td class="paper-stat">2024</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://bpspsychub.onlinelibrary.wiley.com/doi/full/10.1111/bjop.12732" title="Generative neural networks for experimental manipulation: Examining dominance‐trustworthiness face impressions with data‐efficient models">
+                                Generative neural networks for experimental manipulation: Examining dominance‐trustworthiness face impressions with data‐efficient models
+                            </a>
+                            <div class="paper-meta">
+                                British Journal of Psychology 117 (2), 636-655
+                            </div>
+                        </td>
+                        <td class="paper-stat">3</td>
+                        <td class="paper-stat">2026</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://doi.org/10.3389/fnhum.2020.567220" title="Electrophysiological and Behavioral Correlates of Valence, Arousal and Subjective Significance in the Lexical Decision Task">
+                                Electrophysiological and Behavioral Correlates of Valence, Arousal and Subjective Significance in the Lexical Decision Task
+                            </a>
+                            <div class="paper-meta">
+                                Frontiers in Human Neuroscience 14, 567220
+                            </div>
+                        </td>
+                        <td class="paper-stat">23</td>
+                        <td class="paper-stat">2020</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://doi.org/10.1371/journal.pone.0258177" title="Electrophysiological correlates of interference control in the modified emotional Stroop task with emotional stimuli differing in valence, arousal, and subjective significance">
+                                Electrophysiological correlates of interference control in the modified emotional Stroop task with emotional stimuli differing in valence, arousal, and subjective significance
+                            </a>
+                            <div class="paper-meta">
+                                PLOS ONE 16 (10), e0258177
+                            </div>
+                        </td>
+                        <td class="paper-stat">19</td>
+                        <td class="paper-stat">2021</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://doi.org/10.1371/journal.pone.0265537" title="Arousal, subjective significance and the origin of valence aligned words in the processing of an emotional categorisation task">
+                                Arousal, subjective significance and the origin of valence aligned words in the processing of an emotional categorisation task
+                            </a>
+                            <div class="paper-meta">
+                                PLOS ONE 17 (3), e0265537
+                            </div>
+                        </td>
+                        <td class="paper-stat">11</td>
+                        <td class="paper-stat">2022</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://doi.org/10.3390/brainsci12081093" title="The Affect Misattribution in the Interpretation of Ambiguous Stimuli in Terms of Warmth vs. Competence: Behavioral Phenomenon and Its Neural Correlates">
+                                The Affect Misattribution in the Interpretation of Ambiguous Stimuli in Terms of Warmth vs. Competence: Behavioral Phenomenon and Its Neural Correlates
+                            </a>
+                            <div class="paper-meta">
+                                Brain Sciences 12 (8), 1093
+                            </div>
+                        </td>
+                        <td class="paper-stat">8</td>
+                        <td class="paper-stat">2022</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://doi.org/10.1017/langcog.2023.6" title="Role of arousal, subjective significance and valence of affect in task-switching effectiveness">
+                                Role of arousal, subjective significance and valence of affect in task-switching effectiveness
+                            </a>
+                            <div class="paper-meta">
+                                Language and Cognition 15 (4), 689-715
+                            </div>
+                        </td>
+                        <td class="paper-stat">4</td>
+                        <td class="paper-stat">2023</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://doi.org/10.7717/peerj.14583" title="The role of subjective significance, valence and arousal in the explicit processing of emotion-laden words">
+                                The role of subjective significance, valence and arousal in the explicit processing of emotion-laden words
+                            </a>
+                            <div class="paper-meta">
+                                PeerJ 11, e14583
+                            </div>
+                        </td>
+                        <td class="paper-stat">4</td>
+                        <td class="paper-stat">2023</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://doi.org/10.1371/journal.pone.0270558" title="Inhibitory control effectiveness can be improved: The role of arousal, subjective significance and origin of words in modified Emotional Stroop Test">
+                                Inhibitory control effectiveness can be improved: The role of arousal, subjective significance and origin of words in modified Emotional Stroop Test
+                            </a>
+                            <div class="paper-meta">
+                                PLOS ONE 17 (6), e0270558
+                            </div>
+                        </td>
+                        <td class="paper-stat">3</td>
+                        <td class="paper-stat">2022</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://doi.org/10.1101/2022.02.27.22271579" title="Vaccine hesitancy strongly correlates with COVID-19 deaths underreporting">
+                                Vaccine hesitancy strongly correlates with COVID-19 deaths underreporting
+                            </a>
+                            <div class="paper-meta">
+                                medRxiv 2022.02.27.22271579
+                            </div>
+                        </td>
+                        <td class="paper-stat">2</td>
+                        <td class="paper-stat">2022</td>
+                    </tr>
+                </tbody>
+            </table>
+        </aside>
     </div>
 
     <script>
