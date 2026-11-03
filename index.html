@@ -115,6 +115,14 @@
             color: #777;
             margin-top: 2px;
         }
+        .preprint-embed {
+            display: block;
+            width: 100%;
+            height: 800px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
         @media (max-width: 1000px) {
             .page-layout {
                 display: block;
@@ -128,6 +136,9 @@
             .papers a {
                 display: inline;
             }
+            .preprint-embed {
+                height: 70vh;
+            }
         }
     </style>
 </head>
@@ -136,7 +147,7 @@
         <main class="main-content">
             <img src="header.png" alt="Research Newsletter Header" class="header-image">
 
-            <h1>Join Our Research Newsletter</h1>
+            <h1>Join The Research Newsletter</h1>
             <p>Share your e-mail to get updates on our latest research papers and open source methods:</p>
 
             <form id="newsletter-form">
@@ -146,6 +157,12 @@
             </form>
 
             <div id="status"></div>
+
+            <section class="preprint">
+                <h3>Read the Preprint explaining our upcoming methods</h3>
+                <object class="preprint-embed" data="Sobieszek_Siemiatkowski_Psych_Methods.pdf#navpanes=0&view=FitH" type="application/pdf" aria-label="Preprint PDF: Theory of optimal experimental manipulation with generative models via reverse correlation of stimuli"></object>
+                <p><a href="Sobieszek_Siemiatkowski_Psych_Methods.pdf">Open the PDF</a></p>
+            </section>
 
             <h3>Contact Us</h3>
             <p>If you have any questions, please contact us at <a href="mailto:skn.socialai@psych.uw.edu.pl">skn.socialai@psych.uw.edu.pl</a>.</p>
